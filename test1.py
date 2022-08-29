@@ -1,6 +1,6 @@
 print('hello world')
 # commenting
-var = 100
+var = 1001
 def ff1():
     print(globals())
 
