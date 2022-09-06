@@ -1,5 +1,5 @@
 # save this as app.py
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -11,8 +11,15 @@ def home():
 
 @app.route('/', methods = ['POST'])
 def home_post():
-    print("get post request")
-    return render_template("index.html")
+    dim1 = request.form["dim_1"]
+    dim2 = request.form["dim_2"]
+    dim3 = request.form["dim_3"]
+
+    volume = float(dim1) * float(dim2) * float(dim3)
+    volume = int(volume)
+    print(volume)
+
+    return render_template("index.html",output = volume)
 
 
 app.run(host="0.0.0.0")
